@@ -17,20 +17,21 @@
 #
 
 require 'chef/knife/hardware_base'
-require 'chef/knife/data_bag_show'
+require 'chef/knife/data_bag_edit'
 
 class Chef
   class Knife
-    class HardwareShow < Knife
+    class HardwareEdit < Knife
       include Knife::HardwareBase
-      banner "knife hardware show NODE"
+      banner "knife hardware edit NODE"
 
       def run
         uuid = getUuid()
-        dbshow = Chef::Knife::DataBagShow.new
+        dbedit = Chef::Knife::DataBagEdit.new
         puts "Showing data bag item hardware #{uuid}"
-        dbshow.name_args = ['hardware', uuid]
-        dbshow.run
+        dbedit.config[:editor] = ENV['EDITOR']
+        dbedit.name_args = ['hardware', uuid]
+        dbedit.run
       end
     end
   end

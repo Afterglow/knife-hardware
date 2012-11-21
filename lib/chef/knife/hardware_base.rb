@@ -21,7 +21,7 @@ require 'chef/knife'
 class Chef
   class Knife
     module HardwareBase
-      def hardware
+      def getUuid
         unless name_args.size == 1
           puts "You need to specify a node"
           show_usage
@@ -31,8 +31,16 @@ class Chef
         node = Chef::Node.load(name_args[0])
         unless node.has_key? 'uuid'
           puts "Node has no UUID, cannot link to a hardware data bag item"
+          show_usage
+          exit 1
         end
-        @uuid = node.uuid
+        if node.uuid.nil?
+          puts "UUID was nil so I can't lookup the data bag"
+          show_usage
+          exit 1
+        end
+        puts "Working on #{node.uuid}"
+        return node.uuid
       end
     end
   end
