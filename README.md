@@ -1,6 +1,6 @@
 # Knife::Hardware
 
-TODO: Write a gem description
+This gem is only really useful if you happen to track persistent hardware information in a data bag called hardware and link it to nodes by UUID. IF you don't do this then this plugin is useless to you.
 
 ## Installation
 
@@ -18,7 +18,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+knife hardware show NODE
+knife hardware edit NODE
 
 ## Contributing
 
