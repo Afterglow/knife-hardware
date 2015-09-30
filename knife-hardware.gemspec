@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["paul@paulthomas.eu"]
   gem.description   = %q{Automatically link the hardware data bag items to their node}
   gem.summary       = %q{Links items in the hardware data bag to a node using the UUID as a key}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/Afterglow/knife-hardware"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
